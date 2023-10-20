@@ -1,0 +1,120 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+:root{
+    --main-color: RGB(29, 161, 242);
+    --second-color: rgb(14 99 211);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+}
+
+body{
+    height: 100vh;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    gap: 20px;
+    justify-content: center;
+}
+.main > h3{
+    font-size: 2em;
+}
+.main p{
+    text-align: center;
+}
+.main .bottle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 150px;
+    background-color: rgb(255 255 255 / 90%);
+    border-radius: 0px 0px 25px 25px;
+    border: 4px solid var(--second-color);
+    overflow: hidden;
+    position: relative;
+}
+
+.main .bottle p{
+    text-align: center;
+    color: var(--second-color);
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.7s top;
+}
+.main .bottle div{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgb(72 184 253);
+    transition: 0.7s height;
+}
+.main .bottle div::before{
+    content: attr(data-purc);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--second-color);
+    font-weight: 500;
+    font-size: 2em;
+}
+.main .bottle p span{
+    font-weight: 300;
+    font-size: 0.6em;
+}
+
+.bottle-selected{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(70px,1fr));
+    row-gap: 10px;
+    place-items: center;
+    max-width: 310px; */
+}
+
+.main .bottle-selected .small-bottle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 50px;
+    background-color: rgb(255 255 255 / 90%);
+    border-radius: 0px 0px 25px 25px;
+    border: 4px solid var(--second-color);
+    cursor: pointer;
+    color: var(--second-color);
+    transition: 0.4s background-color,0.4s color;
+}
+.main .bottle-selected .small-bottle p{
+    text-align: center;
+    font-weight: 400;
+    font-size: 0.95em;
+    line-height: 1;
+}
+
+.main .bottle-selected .small-bottle.active{
+    color: white;
+    background-color: rgb(72 184 253);
+}
